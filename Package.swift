@@ -14,7 +14,7 @@ let package = Package(
             targets: ["Focuser"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/siteline/SwiftUI-Introspect", exact: "1.1.4")
+        .package(url: "https://github.com/siteline/swiftui-introspect", exact: "1.3.0")
     ],
     targets: [
         .target(

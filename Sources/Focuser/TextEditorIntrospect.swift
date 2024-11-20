@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftUIIntrospect
+@_spi(Advanced) import SwiftUIIntrospect
 
 class TextViewObserver: NSObject, UITextViewDelegate, ObservableObject {
     var onDidBeginEditing: () -> () = { }
@@ -96,7 +96,7 @@ public struct FocusModifierTextEditor<Value: FocusStateCompliant & Hashable>: Vi
     
     public func body(content: Content) -> some View {
         content
-            .introspect(.textEditor, on: .iOS(.v14, .v15, .v16, .v17)) { textView in
+            .introspect(.textEditor, on: .iOS(.v14...)) { textView in
                 if !(textView.delegate is TextViewObserver) {
                     observer.forwardToDelegate = textView.delegate
                     observer.ownerTextView = textView
